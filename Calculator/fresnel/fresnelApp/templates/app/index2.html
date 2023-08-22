@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <title>Calculadora de Fresnel</title>
+</head>
+<body  class="bg-gradient-to-r from-indigo-500">
+    <div class="grid font-mono flex justify-center col-start-2 text-2xl  drop-shadow-lg" style="margin-top: 5%; margin-bottom:2%;"> 
+        Calculadora de Fresnel 
+    </div>
+    <div class="grid grid-cols-7 font-mono flex gap-4  drop-shadow-lg">
+        <form method="GET" action="{% url 'submitquery' %}" class="col-start-4 col-end-5 " >
+            <div class="form-group" >
+                <span for="input1" class="">Distancia en Km</span>
+                <input type="text" class="form-control" id="query" name="query" placeholder="10" >
+                <br>
+                <div class="">
+                    <span for="input1" class="">Frecuencia en GHz</span>
+                    <select name="frecuencia" id="frecuencia">
+                        <option value="2.4" >2.4 GHz</option>
+                        <option value="5.8" selected>5.8 GHz</option>
+                    </select>
+                </div>
+
+            </div>
+            
+            <button type="submit" class="bg-indigo-500 shadow-lg shadow-indigo-500/50 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded w-1/2">Calcular</button>
+        </form>
+        
+        <br>
+        <div class="col-start-4">
+            <h1>La zona de Fresnel es: {{resultado}}</h1>
+        </div>
+    </div> 
+</body>
+</html>
